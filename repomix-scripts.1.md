@@ -28,7 +28,7 @@ The content is organized as follows:
 ## Notes
 - Some files may have been excluded based on .gitignore rules and Repomix's configuration
 - Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
-- Only files matching these patterns are included: scripts/**/*
+- Only files matching these patterns are included: scripts/**/*, *.py
 - Files matching patterns in .gitignore are excluded
 - Files matching default ignore patterns are excluded
 - Files are sorted by Git change count (files with more changes are at the bottom)
@@ -77,17 +77,19 @@ scripts/
   summarize_relative_down.py
   train_all_models.py
   train_relative_down_model.py
+gen_project_overview.py
+watch_changes.py
 ```
 
 # Files
 
 ## File: scripts/__init__.py
-```python
+````python
 
-```
+````
 
 ## File: scripts/00_integrity_check.py
-```python
+````python
 import sys
 import os
 import logging
@@ -210,10 +212,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/01_setup_database.py
-```python
+````python
 import sys
 import os
 from pathlib import Path
@@ -279,10 +281,10 @@ if __name__ == "__main__":
         print("❌ Setup failed!")
     print("=" * 50)
     sys.exit(0 if success else 1)
-```
+````
 
 ## File: scripts/analyze_intraday_hourly.py
-```python
+````python
 import pandas as pd
 from pathlib import Path
 
@@ -327,10 +329,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/analyze_intraday_patterns.py
-```python
+````python
 import pandas as pd
 from pathlib import Path
 
@@ -367,10 +369,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/analyze_intraday_pnl_vs_exposure.py
-```python
+````python
 import pandas as pd
 from pathlib import Path
 
@@ -433,10 +435,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/analyze_live_portfolio_equity.py
-```python
+````python
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -480,10 +482,10 @@ print("=== t-test: mean(return) > 0 ? ===")
 print(f"t-stat           : {t_stat:.3f}")
 print(f"p-value          : {p_val:.4f}")
 print(f"Statistically significant at 5%? : {'YES' if p_val < 0.05 and mean_ret > 0 else 'NO'}")
-```
+````
 
 ## File: scripts/analyze_live_snapshots.py
-```python
+````python
 import pandas as pd
 from pathlib import Path
 
@@ -508,10 +510,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/backfill_minute1_history.py
-```python
+````python
 import sys
 from pathlib import Path
 import time
@@ -633,10 +635,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/backtest_live_portfolio_1d.py
-```python
+````python
 import logging
 import sys
 from pathlib import Path
@@ -909,10 +911,10 @@ def backtest_portfolio_1d():
 
 if __name__ == "__main__":
     backtest_portfolio_1d()
-```
+````
 
 ## File: scripts/backtest_scalping_1m_ethusdt.py
-```python
+````python
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -1083,10 +1085,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/build_today_signals.py
-```python
+````python
 import os
 from pathlib import Path
 
@@ -1147,10 +1149,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/compare_strategy_vs_hodl.py
-```python
+````python
 """
 ETH / DOGE / AVAX
 - 전략 A (signals_1d_trades_*.csv) vs 동일 기간 HODL 수익률 비교
@@ -1232,10 +1234,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/compute_excess_exposure.py
-```python
+````python
 import pandas as pd
 from pathlib import Path
 
@@ -1283,10 +1285,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/daily_intraday_report.py
-```python
+````python
 import pandas as pd
 from pathlib import Path
 
@@ -1342,10 +1344,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/download_binance_1m_history.py
-```python
+````python
 import sys
 from pathlib import Path
 from datetime import datetime, timedelta
@@ -1446,10 +1448,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/download_multitf_history.py
-```python
+````python
 #!/usr/bin/env python
 import time
 from datetime import datetime
@@ -1521,10 +1523,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/generate_signals_1d.py
-```python
+````python
 import logging
 import sys
 from pathlib import Path
@@ -1593,10 +1595,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/gridsearch_1d_signals.py
-```python
+````python
 import logging
 import sys
 from pathlib import Path
@@ -1774,10 +1776,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/gridsearch_scalping_1m_ethusdt.py
-```python
+````python
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -1918,10 +1920,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/label_regimes_from_ohlcv.py
-```python
+````python
 """
 Label market regimes (CRASH / BULL / RANGE) from daily OHLCV.
 
@@ -2010,10 +2012,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/live_trader_ml.py
-```python
+````python
 import os
 import time
 from dataclasses import dataclass
@@ -2463,10 +2465,10 @@ if __name__ == "__main__":
 
 
 # HYBRID_ASSIGN_TARGET_VALUES
-```
+````
 
 ## File: scripts/live_trader_ml.py.backup.20260209_113012
-```
+````
 import os
 import time
 from dataclasses import dataclass
@@ -2972,10 +2974,10 @@ def assign_target_values(opps: List[Opportunity],
     # 최종 target 할당
     for i, o in enumerate(opps):
         o.target_value_krw = risk_capital * final_w[i]
-```
+````
 
 ## File: scripts/multi_best_1d_trades.py
-```python
+````python
 import logging
 import sys
 from pathlib import Path
@@ -3130,10 +3132,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/order_utils.py
-```python
+````python
 import math
 
 MIN_ORDER_KRW = 5500.0
@@ -3157,10 +3159,10 @@ def calc_order_qty(price_krw: float, budget_krw: float) -> float:
         return 0.0
 
     return qty
-```
+````
 
 ## File: scripts/orderutils.py
-```python
+````python
 """
 Minimal order utils for live_trader_ml.
 
@@ -3185,10 +3187,10 @@ def calcorderqty(price: float, budgetkrw: float) -> float:
       return 0.0
   qty = budgetkrw / price
   return max(qty, 0.0)
-```
+````
 
 ## File: scripts/param_sweep_range_bt.py
-```python
+````python
 """
 Param sweep for BTC ML strategy, RANGE regime only.
 
@@ -3474,10 +3476,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/param_sweep_range_multi.py
-```python
+````python
 """
 Param sweep for ML strategy in RANGE regime for selected markets.
 
@@ -3768,10 +3770,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/portfolio_manager_example.py
-```python
+````python
 MIN_ORDER_KRW = 5500.0
 CONF_MARGIN   = 0.10   # 새 기회 conf가 기존 포지션보다 이만큼은 높아야 갈아탄다.
 
@@ -3861,10 +3863,10 @@ if __name__ == "__main__":
     print("BUYS:")
     for b in buys:
         print(b)
-```
+````
 
 ## File: scripts/robust_backtest.py
-```python
+````python
 #!/usr/bin/env python3
 """
 통계적 유의성을 갖춘 로버스트 백테스트
@@ -4099,10 +4101,10 @@ if __name__ == "__main__":
         print("Results saved to: reports/robust_backtest_results.csv")
         print(f"{'='*60}")
         print(df_results[['market', 'total_return', 'sharpe_ratio', 'p_value', 'statistically_significant']].to_string(index=False))
-```
+````
 
 ## File: scripts/run_realtime_trading_conf.py
-```python
+````python
 import os
 import time
 from dataclasses import dataclass
@@ -4310,10 +4312,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/run_realtime_trading.py
-```python
+````python
 """
 실시간 트레이딩 메인 루프
 1. WebSocket으로 틱 수집
@@ -4506,10 +4508,10 @@ if __name__ == "__main__":
     
     # 데모: 1분 동안 실행 (실제로는 더 길게)
     engine.run(duration_minutes=1)
-```
+````
 
 ## File: scripts/run_scheme_comparison.py
-```python
+````python
 #!/usr/bin/env python3
 """
 A/B/C 포지션 스킴 백테스트 비교
@@ -4638,10 +4640,10 @@ if __name__ == "__main__":
     final_df.to_csv('reports/scheme_comparison.csv', index=False)
     logger.info("Results saved to reports/scheme_comparison.csv")
     print(final_df)
-```
+````
 
 ## File: scripts/scan_volume_spikes_1d.py
-```python
+````python
 import logging
 import sys
 from pathlib import Path
@@ -4822,10 +4824,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/show_volume_spikes_today.py
-```python
+````python
 import pandas as pd
 from pathlib import Path
 
@@ -4884,10 +4886,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/simulate_ml_performance_1d.py
-```python
+````python
 import logging
 import sys
 from pathlib import Path
@@ -5054,10 +5056,10 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/simulate_ml_performance.py
-```python
+````python
 """
 ML Backtest Replay (다중 코인, 1분봉 기준)
 
@@ -5268,10 +5270,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/start_trading_daemon.sh
-```bash
+````bash
 #!/usr/bin/env bash
 set -e
 
@@ -5289,10 +5291,10 @@ nohup python -m scripts.live_trader_ml >> "$LOGDIR/live_trader_daemon.log" 2>&1 
 
 echo "[DAEMON] live_trader_ml.py 백그라운드 시작됨. PID 목록은 다음 명령으로 확인:"
 echo "         ps aux | rg live_trader_ml.py"
-```
+````
 
 ## File: scripts/summarize_relative_down.py
-```python
+````python
 """
 전략 B (BTC 급락장 상대강세 롱) 요약:
 - trades_relative_down.csv 읽어서
@@ -5340,10 +5342,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/train_all_models.py
-```python
+````python
 """
 모든 모델 일괄 학습 스크립트
 - KRW-BTC 7일 1분봉 수집
@@ -5416,10 +5418,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
+````
 
 ## File: scripts/train_relative_down_model.py
-```python
+````python
 """
 전략 B: BTC 하락장에서 BTC 대비 아웃퍼폼할 알트를 고르는 상대강세 CatBoost 모델 학습 스크립트.
 
@@ -5569,4 +5571,276 @@ def train_and_save():
 
 if __name__ == "__main__":
     train_and_save()
-```
+````
+
+## File: gen_project_overview.py
+````python
+from pathlib import Path
+from datetime import datetime
+from typing import Optional
+
+PROJECT_ROOT = Path(".").resolve()
+LOG_FILE = PROJECT_ROOT / "system_changes.md"
+
+IGNORE_DIRS = {
+    ".git", ".change_cache", ".idea", ".vscode",
+    "venv", ".venv", "__pycache__", ".pytest_cache",
+}
+
+TRACK_EXTS = {".py", ".md", ".yaml", ".yml", ".json", ".sql", ".sh"}
+
+MAX_FILES_PER_DIR = 80
+MAX_SUMMARY_LEN = 120
+
+
+def read_summary_line(path: Path) -> str:
+    """
+    파일 내용에서 한 줄 설명을 추출.
+    - .py: 맨 위 docstring/주석/코멘트 라인
+    - .md: 첫 번째 # 헤더
+    - 기타: 첫 번째 비어있지 않은 라인
+    """
+    try:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+    except Exception:
+        return "(unreadable)"
+
+    lines = [l.rstrip() for l in text.splitlines()]
+
+    # .md: 첫 번째 헤더
+    if path.suffix.lower() == ".md":
+        for l in lines:
+            if l.strip().startswith("#"):
+                return l.strip().lstrip("#").strip() or "(empty heading)"
+
+    # .py: 모듈 docstring/주석 우선
+    if path.suffix.lower() == ".py":
+        in_doc = False
+        doc_lines = []
+        for l in lines[:60]:
+            s = l.strip()
+            if not s:
+                continue
+            # """...""" 한 줄짜리
+            if s.startswith('"""') or s.startswith("'''"):
+                in_doc = not in_doc
+                # """summary""" 한 줄
+                if s.count('"""') == 2 or s.count("'''") == 2:
+                    inner = s.strip('"\'')
+                    return inner.strip() or "(docstring)"
+                continue
+            if in_doc:
+                if s:
+                    doc_lines.append(s)
+                    break
+            # 맨 위쪽 주석
+            if s.startswith("#"):
+                return s.lstrip("#").strip() or "(comment)"
+        if doc_lines:
+            return doc_lines[0]
+
+    # 기타: 첫 번째 비어있지 않은 라인
+    for l in lines:
+        if l.strip():
+            return l.strip()
+
+    return "(no summary)"
+
+
+def short(s: str, max_len: int = MAX_SUMMARY_LEN) -> str:
+    s = s.replace("`", "'")
+    if len(s) <= max_len:
+        return s
+    return s[: max_len - 3] + "..."
+
+
+def should_ignore(path: Path) -> bool:
+    return any(part in IGNORE_DIRS for part in path.parts)
+
+
+def build_overview() -> str:
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    lines = []
+    lines.append(f"## {ts}")
+    lines.append("### Initial File Overview (Filesystem Snapshot)")
+    lines.append("")
+    lines.append(f"- Project root: `{PROJECT_ROOT}`")
+    lines.append("- Generated by scanning the actual filesystem (not from memory).")
+    lines.append("- Each file has a short summary from its header/docstring/first line.")
+    lines.append("- For data (pandas DataFrame 등)는 실제 데이터 대신 **스키마/컬럼 구조만** 나중 change 로그에 적어줄 것.")
+    lines.append("")
+
+    # 디렉토리별 파일 목록: {top_dir: [ (rel_path, summary), ... ]}
+    by_dir: dict[str, list[tuple[Path, str]]] = {}
+
+    for path in PROJECT_ROOT.rglob("*"):
+        if not path.is_file():
+            continue
+        if should_ignore(path):
+            continue
+
+        rel = path.relative_to(PROJECT_ROOT)
+        # 상위 디렉토리 이름
+        if len(rel.parts) == 1:
+            top = "(root)"
+        else:
+            top = rel.parts[0]
+
+        # 너무 자잘한 바이너리는 건너뛸 수 있지만, 여기선 다 허용
+        summ = read_summary_line(path)
+        by_dir.setdefault(top, []).append((rel, summ))
+
+    # 정렬
+    for k in by_dir:
+        by_dir[k].sort(key=lambda x: str(x[0]))
+
+    dir_names = sorted(by_dir.keys(), key=lambda k: (k != "(root)", k))
+
+    for dirname in dir_names:
+        files = by_dir[dirname]
+        lines.append(f"#### `{dirname}/`")
+        total = len(files)
+        lines.append(f"- Files: {total}")
+        lines.append("")
+        # 상위 N개만, 나머지는 생략 표시
+        for rel, summ in files[:MAX_FILES_PER_DIR]:
+            lines.append(f"- `{rel}` — {short(summ)}")
+        if total > MAX_FILES_PER_DIR:
+            remaining = total - MAX_FILES_PER_DIR
+            lines.append(f"- ... and {remaining} more files in `{dirname}/`")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+def main():
+    overview = build_overview()
+
+    if not LOG_FILE.exists():
+        LOG_FILE.write_text("# System Changes Log\n", encoding="utf-8")
+
+    with LOG_FILE.open("a", encoding="utf-8") as f:
+        f.write("\n")
+        f.write(overview)
+
+    print(f"[gen_project_overview] Wrote initial file overview to {LOG_FILE}")
+
+
+if __name__ == "__main__":
+    main()
+````
+
+## File: watch_changes.py
+````python
+import time
+import difflib
+from datetime import datetime
+from pathlib import Path
+
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+
+# 감시할 확장자들
+WATCH_EXTS = {".py", ".ipynb", ".yaml", ".yml", ".md"}
+
+PROJECT_ROOT = Path(".").resolve()
+CACHE_DIR = PROJECT_ROOT / ".change_cache"
+LOG_FILE = PROJECT_ROOT / "system_changes.md"
+
+CACHE_DIR.mkdir(exist_ok=True)
+
+def _cache_path(path: Path) -> Path:
+    # 로컬 경로를 캐시 파일 이름으로 변환
+    rel = path.relative_to(PROJECT_ROOT)
+    safe_name = "__".join(rel.parts)
+    return CACHE_DIR / (safe_name + ".txt")
+
+def _read_text(path: Path) -> str:
+    try:
+        return path.read_text(encoding="utf-8")
+    except FileNotFoundError:
+        return ""
+
+def _write_text(path: Path, text: str):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+
+class ChangeHandler(FileSystemEventHandler):
+    def on_modified(self, event):
+        if event.is_directory:
+            return
+
+        path = Path(event.src_path)
+        if path.suffix not in WATCH_EXTS:
+            return
+
+        # system_changes.md 자기 자신은 무시
+        if path.resolve() == LOG_FILE.resolve():
+            return
+
+        rel_path = path.relative_to(PROJECT_ROOT)
+        cache_path = _cache_path(path)
+
+        new_text = _read_text(path)
+        old_text = _read_text(cache_path)
+
+        # 최초 관측이면 캐시만 저장하고 로그는 남기지 않음
+        if not old_text:
+            _write_text(cache_path, new_text)
+            return
+
+        if new_text == old_text:
+            return
+
+        # diff 생성
+        diff_lines = list(
+            difflib.unified_diff(
+                old_text.splitlines(),
+                new_text.splitlines(),
+                fromfile=str(rel_path),
+                tofile=str(rel_path),
+                lineterm="",
+            )
+        )
+
+        # 너무 길면 앞부분만 남기기
+        max_lines = 60
+        if len(diff_lines) > max_lines:
+            diff_lines = diff_lines[:max_lines] + ["... (diff truncated)"]
+
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        header = f"\n\n## {timestamp}\n### Changed: `{rel_path}`\n"
+
+        # 데이터 구조/스키마는 전체가 아니라 요약만 쓰자는 안내
+        note = (
+            "> Note: 이 파일에서 pandas DataFrame / 데이터 스키마를 바꿨다면, "
+            "나에게 보낼 때는 **전체 데이터 대신 컬럼/인덱스 구조만** 같이 적어줘.\n"
+        )
+
+        diff_block = "```diff\n" + "\n".join(diff_lines) + "\n```\n"
+
+        entry = header + note + diff_block
+
+        with LOG_FILE.open("a", encoding="utf-8") as f:
+            f.write(entry)
+
+        # 캐시 갱신
+        _write_text(cache_path, new_text)
+
+def main():
+    observer = Observer()
+    handler = ChangeHandler()
+    observer.schedule(handler, str(PROJECT_ROOT), recursive=True)
+    observer.start()
+    print(f"[watch_changes] Watching for changes under {PROJECT_ROOT}")
+    print(f"[watch_changes] Logging to {LOG_FILE}")
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        observer.stop()
+    observer.join()
+
+if __name__ == "__main__":
+    main()
+````
